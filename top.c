@@ -55,7 +55,7 @@ strcpy(argv[u], tok);
 tok = strtok(NULL, delim);
         }
 argv[u] = NULL;
-if (access("/usr/bin/input", F_OK) != 0){
+if (access("usr/bin/input", F_OK) != 0){
 print_top("Command does not exist.\n");
 }
 }
