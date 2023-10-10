@@ -1,5 +1,5 @@
 #include "top.h"
-xsxc
+
 char *finding_path(char *command){
     char *thepath, *pc, *pt, *fp;
     int cmd_len, d_len;
