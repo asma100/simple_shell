@@ -1,6 +1,7 @@
-#include "top.h" 
-char *inputtop(char *input, size_t s) {
+#include "top.h"
+void inputtop(char *input, size_t s) {
 ssize_t checkline;
+ const char *delim = " \t\n";
  checkline = getline(&input, &s, stdin);
   if (checkline == -1) {
    if (feof(stdin)) {
@@ -15,13 +16,13 @@ ssize_t checkline;
     /* empty input, do nothing*/
     free(input);
     input = NULL;
-    return (NULL);
+    return ;
   } else if (strcmp(input, "exit\n") == 0) {
     /* user wants to exit the program */
     free(input);
     input = NULL;
     exit(EXIT_SUCCESS);
   }
-
-  return (input);
+Parse(input,delim);
+ /* return (input);*/
 }
