@@ -13,7 +13,7 @@ pt = strtok(pc, ":");
 while (pt != NULL)
 {
 d_len = strlen(pt);
-fp = malloc(cmd_len + d_len + 2);
+fp = malloc(cmd_len + d_len + 1);
 strcpy(fp, pt);
 strcat(fp, "/");
 strcat(fp, command);
