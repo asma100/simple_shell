@@ -6,33 +6,32 @@
  * main-function for the shell
  * Return: the coun number
 */
-int main(void) {
- char *input = NULL;
+int main(void)
+{
+char *input = NULL;
 /*char *input_cp = NULL;*/
-
-if (isatty (STDIN_FILENO)) {
+if (isatty(STDIN_FILENO))
+{
 /* shell is running in interactive mode */
 /* display prompt and accept input from user */
- while (1) {
- print_top("top$");
- inputtop (input,sizeof(input));
+while (1)
+{
+print_top("top$");
+inputtop(input, sizeof(input));
 
-
-
- }
- free(input);
+}
+free(input);
 /* free(input_cp);*/
-} else {
+}
+else
+{
 /* shell is running in non-interactive mode */
 /* execute commands from script or batch file*/
-  while (1)
-    {
-inputtop (input,sizeof(input));
+while (1)
+{
+inputtop(input, sizeof(input));
 }
-
- free(input);
+free(input);
 }
-
- return (0);
-
+return (0);
 }
