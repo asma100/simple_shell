@@ -14,7 +14,6 @@ if (checkline == -1)
 {
 if (feof(stdin))
 {
-printf("\n");
 exit(EXIT_SUCCESS);
 }
 else
