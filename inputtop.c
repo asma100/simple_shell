@@ -11,7 +11,7 @@ ssize_t checkline;
  checkline = getline(&input, &s, stdin);
   if (checkline == -1) {
    if (feof(stdin)) {
-           
+            printf("\n");
             exit(EXIT_SUCCESS);
         } else {
       perror("Error reading input:");
@@ -29,14 +29,6 @@ ssize_t checkline;
     input = NULL;
     exit(EXIT_SUCCESS);
   }
- else if (strcmp(input, "env\n")==0)
- {
-  env_builtin();
-  exit(0);
- }
- else
-{
 Parse(input,delim);
-}
  free(input);
 }
