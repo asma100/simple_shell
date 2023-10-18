@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "top.h"
-
-
-
+/**
+ * main-function for the shell
+ * Return: the coun number
+*/
 int main(void) {
  char *input = NULL;
 /*char *input_cp = NULL;*/

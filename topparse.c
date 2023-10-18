@@ -1,5 +1,11 @@
 #include "top.h"
- void Parse(char * input, const char *delim)
+/**
+ * Parse - function for the parsing
+ * @input: input from the cmd
+ * @delim: value of the delimeter
+ * Return: the coun number
+*/
+void Parse(char *input, const char *delim)
 {
 char *tok;
 int tok_counter = 0;
@@ -15,7 +21,7 @@ return;
 if (input[0] == '\0')
 {
 free(input_cp);
-return ;
+return;
 }
 tok = strtok(input, delim);
 while (tok != NULL)
@@ -30,7 +36,7 @@ if (arr == NULL)
 perror("Error allocating memory for arr:");
 free(input);
 free(input_cp);
-return ;
+return;
 }
 tok = strtok(input_cp, delim);
 for (u = 0; tok != NULL; u++)

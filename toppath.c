@@ -1,4 +1,15 @@
 #include "top.h"
+/**
+ * finding_path - find the path of the command
+ * @*thepath: pointer to  count the path
+ * @*pc: a copy of the path
+ * @cmd_len  length of the command
+ * @d_len lenth of the path
+ * @*fp: the full path include the command
+ * @*pt: store the value of paht env accordingly
+ * @command:the command provide by the user
+ * Return: null
+ */
 char *finding_path(char *command)
 {
 char *thepath, *pc, *pt, *fp;
