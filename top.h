@@ -10,18 +10,15 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <ctype.h>
 #include <fcntl.h>
-void print_top(char *top);
-void topcmd(char **argv);
-void Parse(char *input, const char *delim);
-char *finding_path(char *command);
-void inputtop (char *input, size_t s);
-void env_builtin();
-void print_error(const char *message);
-size_t _strlen(const char *s);
-void parsetok(char *input_cp, char *input);
+
 extern char **environ;
-/*void read_command(char *command, size_t size);
-  void execute_command(const char *command);*/
+
+void print_top(char *top);
+void inputtop (char *input, size_t s, int status);
+void env_builtin();
+int empty(char *input);
+
 
 #endif
