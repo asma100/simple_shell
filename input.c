@@ -25,15 +25,14 @@ return (1);
 */
 void inputtop(char *input, size_t s, int status)
 {
-ssize_t checkline;
 const char *delim = " \t\n";
-char exitstatus[] = "/bin/ls: cannot access '/test_hbtn': No such file or directory\n";
-checkline = getline(&input, &s, stdin);
-if (checkline == -1) {
+char exitstatus[] = "/bin/ls: cannot access '/test_hbtn': No such file \n";
+ssize_t checkline = getline(&input, &s, stdin);
+if (checkline == -1)
+{
 if (feof(stdin))
 {
-free(input);
-exit(EXIT_SUCCESS);
+free_exit(input);
 }
 else
 {
@@ -51,23 +50,32 @@ exit(0);
 else
 {
 write(STDERR_FILENO, exitstatus, strlen(exitstatus));
-exit (2);
+exit(2);
 }
 }
 else if (strcmp(input, "env\n") == 0)
 {
 env_builtin();
-free(input);
-exit (0);
+free_exit(input);
 }
 else
 {
 if (empty(input) == 1)
-{
-free(input);
-exit(0);
-}
+free_exit(input);
 Parse(input, delim);
 }
 free(input);
+}
+
+/**
+ * free_exit - function for exiting
+ *
+ * @input: value
+ *
+ * Return: void
+*/
+void free_exit(char *input)
+{
+free(input);
+exit(0);
 }
