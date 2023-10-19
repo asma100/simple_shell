@@ -26,8 +26,8 @@ return (1);
 void inputtop(char *input, size_t s, int status)
 {
 ssize_t checkline = getline(&input, &s, stdin);
-const char *delim = " \t\n";
-char exitstatus[] = "/bin/ls:cannot access '/test_hbtn':No such file\n";
+
+
 if (checkline == -1)
 {
 if (feof(stdin))
@@ -35,17 +35,7 @@ exit(EXIT_SUCCESS);
 else
 {
 perror("Error reading input:");
-
-    
-        
-          
-    
-
-        
-        Expand All
-    
-    @@ -42,11 +44,21 @@ exit(EXIT_FAILURE);
-  
+exit(EXIT_FAILURE);
 free(input);
 exit(EXIT_FAILURE);
 }
@@ -54,22 +44,13 @@ else if (strcmp(input, "exit\n") == 0)
 {
 handext(input, status);
 }
-else ifc(strcmp(input, "env\n") == 0)
+else if (strcmp(input, "env\n") == 0)
 {
 handenv(input);
 }
 else
 {
-
-    
-        
-          
-    
-
-        
-        Expand All
-    
-    @@ -59,37 +71,3 @@ Parse(input, delim);
+ Parse(input, delim);
   
 if (empty(input) == 1)
 {
@@ -93,7 +74,6 @@ env_builtin();
 free(input);
 exit(0);
 }
-
 /**
  * handext - function for  handling
  *
@@ -104,6 +84,7 @@ exit(0);
 
 void handext(char *input, int status)
 {
+char exitstatus[] = "/bin/ls:cannot access '/test_hbtn':No such file\n";
 free(input);
 input = NULL;
 if (status == 0)
