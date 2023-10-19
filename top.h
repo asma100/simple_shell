@@ -13,8 +13,12 @@
 #include <ctype.h>
 #include <fcntl.h>
 
-extern char **environ;
 
+void empchack(char * input, char * input_cp);
+void freep(char **arr,char *input_cp,int u);
+extern char **environ;
+void handext(char *input,int status);
+void handenv(char *input);
 void print_top(char *top);
 void inputtop (char *input, size_t s, int status);
 void env_builtin();
