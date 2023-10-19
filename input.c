@@ -3,6 +3,7 @@
 
 int empty(char *input)
 {
+	 const char *delim = " \t\n";
 	if (input == NULL)
 		return (1);
 
