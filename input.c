@@ -55,8 +55,8 @@ void inputtop(char *input, size_t s, int status) {
 			exit(0);
 		}
 
-
-		/*call your function here*/
+       Parse(input,delim);
+		
 	}
 	free(input);
 }
