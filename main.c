@@ -3,6 +3,10 @@
 #include <unistd.h>
 #include "top.h"
 
+/**
+ * main-function for the shell
+ * Return: the coun number
+*/
 
 
 int main(void) {
