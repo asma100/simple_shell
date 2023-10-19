@@ -14,7 +14,6 @@ if (!isspace(*input))
 return (0);
 input++;
 }
-
 return (1);
 }
 /**
@@ -26,43 +25,52 @@ return (1);
 */
 void inputtop(char *input, size_t s, int status)
 {
-ssize_t checkline;
+ssize_t checkline = getline(&input, &s, stdin);
 const char *delim = " \t\n";
-char exitstatus[] = "/bin/ls: cannot access '/test_hbtn': No such file or directory\n";
-checkline = getline(&input, &s, stdin);
-if (checkline == -1) {
-if (feof(stdin))
+char exitstatus[] = "/bin/ls:cannot access '/test_hbtn':No such file\n";
+if (checkline == -1)
 {
-free(input);
+if (feof(stdin))
 exit(EXIT_SUCCESS);
-}
 else
 {
 perror("Error reading input:");
+
+    
+        
+          
+    
+
+        
+        Expand All
+    
+    @@ -42,11 +44,21 @@ exit(EXIT_FAILURE);
+  
 free(input);
 exit(EXIT_FAILURE);
 }
 }
 else if (strcmp(input, "exit\n") == 0)
 {
-free(input);
-input = NULL;
-if (status == 0)
-exit(0);
-else
-{
-write(STDERR_FILENO, exitstatus, strlen(exitstatus));
-exit (2);
+handext(input, status);
 }
-}
-else if (strcmp(input, "env\n") == 0)
+else ifc(strcmp(input, "env\n") == 0)
 {
-env_builtin();
-free(input);
-exit (0);
+handenv(input);
 }
 else
 {
+
+    
+        
+          
+    
+
+        
+        Expand All
+    
+    @@ -59,37 +71,3 @@ Parse(input, delim);
+  
 if (empty(input) == 1)
 {
 free(input);
@@ -71,4 +79,38 @@ exit(0);
 Parse(input, delim);
 }
 free(input);
+}
+/**
+ * handenv - function for  handling
+ *
+ * @input: value
+ *
+ * Return: void
+*/
+void handenv(char *input)
+{
+env_builtin();
+free(input);
+exit(0);
+}
+
+/**
+ * handext - function for  handling
+ *
+ * @input: value
+ * @status: int
+ * Return: void
+*/
+
+void handext(char *input, int status)
+{
+free(input);
+input = NULL;
+if (status == 0)
+exit(0);
+else
+{
+write(STDERR_FILENO, exitstatus, strlen(exitstatus));
+exit(2);
+}
 }
