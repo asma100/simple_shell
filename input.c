@@ -33,7 +33,6 @@ checkline = getline(&input, &s, stdin);
 if (checkline == -1) {
 if (feof(stdin))
 {
-free(input);
 exit(EXIT_SUCCESS);
 }
 else
