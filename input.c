@@ -24,6 +24,7 @@ int empty(char *input)
  * inputtop - function for the user input handling
  * @s: size of the input
  * @input: value
+ * @status:0,1
  * Return: null
 */
 void inputtop(char *input, size_t s, int status) {
