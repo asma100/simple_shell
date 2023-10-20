@@ -13,24 +13,29 @@
 #include <ctype.h>
 #include <fcntl.h>
 
-
-void empchack(char *input, char *input_cp);
-void freep(char **arr, char *input_cp, int u);
 void free_exit(char *input);
-void handext(char *input, int status);
+void empchack(char * input, char * input_cp);
+void freep(char **arrc,char *input_cp);
+extern char **environ;
+void handext(char *input,int status);
 void handenv(char *input);
 void print_top(char *top);
-void inputtop(char *input, size_t s, int status);
-void env_builtin(void);
+void inputtop (char *input, size_t s, int status);
+void env_builtin();
 int empty(char *input);
 void print_top(char *top);
 void topcmd(char **argv);
 void Parse(char *input, const char *delim);
 char *finding_path(char *command);
-void env_builtin(void);
+void env_builtin();
 void print_error(const char *message);
-size_t _strlen(const char *s);
+int _strlen(char *s);
 void parsetok(char *input_cp, char *input);
 extern char **environ;
+char **comment(char **arr,int tok_counter);
+#define MAX_ARGS 128
+
+
+
 
 #endif
