@@ -49,9 +49,9 @@ freep(arrc, input_cp);
 
 /**
  * freep - free
- *@arr: array
+ *@arrc: array
  *@input_cp: input
- *@u: counter
+ *
  * Return: void
 */
 void freep(char **arrc, char *input_cp)
