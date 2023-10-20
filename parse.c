@@ -7,11 +7,9 @@
 */
 void Parse(char *input, const char *delim)
 {
-char **arrc;
+char **arrc, **arr = NULL;
 char *tok;
-int tok_counter = 0;
-char **arr = NULL;
-int u = 0;
+int tok_counter = 0,  u = 0;
 char *input_cp = strdup(input);
 empchack(input, input_cp);
 tok = strtok(input, delim);
@@ -45,16 +43,8 @@ tok = strtok(NULL, delim);
 }
 arr[u] = NULL;
 arrc = comment(arr, tok_counter);
-if(arrc != NULL)
-{
 topcmd(arrc);
 freep(arrc, input_cp);
-}
-else 
-{ 
-freep(arrc, input_cp);
-return;
-}
 }
 
 /**
