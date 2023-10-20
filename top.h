@@ -13,9 +13,11 @@
 #include <ctype.h>
 #include <fcntl.h>
 
+
+char *comm(char *input);
 void free_exit(char *input);
-void empchack(char *input, char *input_cp);
-void freep(char **arrc, char *input_cp);
+void empchack(char *input, char  *input_cp);
+void freep(char **arrc, char *input_cp, int u);
 extern char **environ;
 void handext(char *input, int status);
 void handenv(char *input);
@@ -34,7 +36,7 @@ void parsetok(char *input_cp, char *input);
 extern char **environ;
 char **comment(char **arr, int tok_counter);
 #define MAX_ARGS 128
-
+void newline(char *input);
 
 
 

@@ -7,9 +7,10 @@
 */
 void Parse(char *input, const char *delim)
 {
-char **arrc, **arr = NULL;
 char *tok;
-int tok_counter = 0,  u = 0;
+int tok_counter = 0;
+char **arr = NULL;
+int  u = 0;
 char *input_cp = strdup(input);
 empchack(input, input_cp);
 tok = strtok(input, delim);
@@ -34,7 +35,7 @@ arr[u] = malloc(sizeof(char) * (strlen(tok) + 2));
 if (arr[u] == NULL)
 {
 perror("Error allocating memory for arr[u]:");
-freep(arr, input_cp);
+freep(arr, input_cp, u);
 free(input);
 return;
 }
@@ -42,24 +43,22 @@ strcpy(arr[u], tok);
 tok = strtok(NULL, delim);
 }
 arr[u] = NULL;
-arrc = comment(arr, tok_counter);
-topcmd(arrc);
-freep(arrc, input_cp);
+topcmd(arr);
+freep(arr, input_cp, u);
 }
-
 /**
  * freep - free
- *@arrc: array
+ *@arr: array
  *@input_cp: input
- *
+ *@u: counter
  * Return: void
 */
-void freep(char **arrc, char *input_cp)
+void freep(char **arr, char *input_cp, int u)
 {
 int i;
-for (i = 0; arrc[i] != NULL; i++)
-free(arrc[i]);
-free(arrc);
+for (i = 0; i < u; i++)
+free(arr[i]);
+free(arr);
 free(input_cp);
 }
 /**
