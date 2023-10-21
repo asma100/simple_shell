@@ -9,9 +9,9 @@ void topcmd(char **argv)
 {
 char *cmd = NULL, *acmd = NULL;
 pid_t pid;
+int i = 0;
 if (argv)
 {
-handle_logicalop(argv);
 cmd = argv[0];
 acmd = finding_path(cmd);
 if (acmd == NULL)
