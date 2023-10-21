@@ -9,7 +9,6 @@ void topcmd(char **argv)
 {
 char *cmd = NULL, *acmd = NULL;
 pid_t pid;
-int i = 0;
 if (argv)
 {
 cmd = argv[0];
